@@ -53,30 +53,40 @@ namespace tinysort
 
         private void sortMethod() {
             // collects names of files in a given directory and lumps them in an array
-            string[] sFileNames = Directory.GetFiles(dirPath, "*");
-
-            foreach (string element in sFileNames)
+            try
             {
-                //converts the full paths to the files to just their actual names and adds them into an ArrayList
-                fileNames.Add(Path.GetFileName(element)); 
-            }
-            //checks if directory doesn't already exist, then creates it
-            if (!Directory.Exists(Path.Combine(dirPath, "images"))) {
-                Directory.CreateDirectory(Path.Combine(dirPath, "images"));
-            }
-            if (!Directory.Exists(Path.Combine(dirPath, "text_files"))) {
-                Directory.CreateDirectory(Path.Combine(dirPath, "text_files"));
-            }
 
-            if (!Directory.Exists(Path.Combine(dirPath, "videos"))) {
-                Directory.CreateDirectory(Path.Combine(dirPath, "videos"));
-            }
+                string[] sFileNames = Directory.GetFiles(dirPath, "*");
 
-            if (!Directory.Exists(Path.Combine(dirPath, "applications"))) {
-                Directory.CreateDirectory(Path.Combine(dirPath, "applications"));
-            }
-                
+                foreach (string element in sFileNames)
+                {
+                    //converts the full paths to the files to just their actual names and adds them into an ArrayList
+                    fileNames.Add(Path.GetFileName(element));
+                }
+                //checks if directory doesn't already exist, then creates it
+                if (!Directory.Exists(Path.Combine(dirPath, "images")))
+                {
+                    Directory.CreateDirectory(Path.Combine(dirPath, "images"));
+                }
+                if (!Directory.Exists(Path.Combine(dirPath, "text_files")))
+                {
+                    Directory.CreateDirectory(Path.Combine(dirPath, "text_files"));
+                }
 
+                if (!Directory.Exists(Path.Combine(dirPath, "videos")))
+                {
+                    Directory.CreateDirectory(Path.Combine(dirPath, "videos"));
+                }
+
+                if (!Directory.Exists(Path.Combine(dirPath, "applications")))
+                {
+                    Directory.CreateDirectory(Path.Combine(dirPath, "applications"));
+                }
+
+            }
+            catch (ArgumentNullException) {
+                System.Windows.Forms.MessageBox.Show("An exception has occured!");
+            }
             
             foreach (string fileName in fileNames) {
                 //extension check
