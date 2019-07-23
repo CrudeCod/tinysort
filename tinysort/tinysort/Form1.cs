@@ -16,11 +16,11 @@ namespace tinysort
         //initializes the directory path and the target path
         string dirPath;
         string targPath;
-        //initializes the possible extensions
+        //creates the possible extensions
         string[] textExtensions = { ".txt", ".rtf", ".pdf", ".doc", ".docx" };
-        string[] imageExtensions = { ".png", ".jpg", ".jpeg", ".gif" };
-        string[] videoExtensions = { ".mp4", ".m4a", ".mov", ".ogg", ".webm", ".wmv", ".avi", ".flv" };
-        string[] appExtensions = { ".exe",".url" };
+        string[] imageExtensions = { ".png", ".jpg", ".jpeg", ".gif", ".PNG", ".JPG"};
+        string[] videoExtensions = { ".mp4", ".m4a", ".mov", ".ogg", ".webm", ".wmv", ".avi", ".flv"};
+        string[] appExtensions = { ".exe",".url",".lnk" };
 
 
         System.Collections.ArrayList fileNames = new System.Collections.ArrayList();
@@ -29,6 +29,8 @@ namespace tinysort
 
         public Form1()
         {
+            this.MaximumSize = new System.Drawing.Size(500, 500);
+            this.MinimumSize = new System.Drawing.Size(500, 500);
             InitializeComponent();
            
 
