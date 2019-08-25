@@ -35,6 +35,7 @@
             this.vidCheck = new System.Windows.Forms.CheckBox();
             this.sortButton = new System.Windows.Forms.Button();
             this.directoryButton = new System.Windows.Forms.Button();
+            this.audioCheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -44,7 +45,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tinysort 1.0";
+            this.label1.Text = "Tinysort 1.1";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textCheck
@@ -60,7 +61,7 @@
             // imgCheck
             // 
             this.imgCheck.AutoSize = true;
-            this.imgCheck.Location = new System.Drawing.Point(342, 97);
+            this.imgCheck.Location = new System.Drawing.Point(342, 77);
             this.imgCheck.Name = "imgCheck";
             this.imgCheck.Size = new System.Drawing.Size(105, 21);
             this.imgCheck.TabIndex = 2;
@@ -70,7 +71,7 @@
             // appCheck
             // 
             this.appCheck.AutoSize = true;
-            this.appCheck.Location = new System.Drawing.Point(342, 165);
+            this.appCheck.Location = new System.Drawing.Point(342, 118);
             this.appCheck.Name = "appCheck";
             this.appCheck.Size = new System.Drawing.Size(135, 21);
             this.appCheck.TabIndex = 3;
@@ -80,7 +81,7 @@
             // vidCheck
             // 
             this.vidCheck.AutoSize = true;
-            this.vidCheck.Location = new System.Drawing.Point(342, 234);
+            this.vidCheck.Location = new System.Drawing.Point(342, 158);
             this.vidCheck.Name = "vidCheck";
             this.vidCheck.Size = new System.Drawing.Size(101, 21);
             this.vidCheck.TabIndex = 4;
@@ -107,11 +108,22 @@
             this.directoryButton.UseVisualStyleBackColor = true;
             this.directoryButton.Click += new System.EventHandler(this.directoryButton_Click);
             // 
+            // audioCheck
+            // 
+            this.audioCheck.AutoSize = true;
+            this.audioCheck.Location = new System.Drawing.Point(342, 197);
+            this.audioCheck.Name = "audioCheck";
+            this.audioCheck.Size = new System.Drawing.Size(95, 21);
+            this.audioCheck.TabIndex = 7;
+            this.audioCheck.Text = "Sort audio";
+            this.audioCheck.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 289);
+            this.Controls.Add(this.audioCheck);
             this.Controls.Add(this.directoryButton);
             this.Controls.Add(this.sortButton);
             this.Controls.Add(this.vidCheck);
@@ -119,8 +131,10 @@
             this.Controls.Add(this.imgCheck);
             this.Controls.Add(this.textCheck);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Tinysort";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,6 +149,7 @@
         private System.Windows.Forms.CheckBox vidCheck;
         private System.Windows.Forms.Button sortButton;
         private System.Windows.Forms.Button directoryButton;
+        private System.Windows.Forms.CheckBox audioCheck;
     }
 }
 

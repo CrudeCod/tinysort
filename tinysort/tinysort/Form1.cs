@@ -21,6 +21,7 @@ namespace tinysort
         string[] imageExtensions = { ".png", ".jpg", ".jpeg", ".gif", ".PNG", ".JPG"};
         string[] videoExtensions = { ".mp4", ".m4a", ".mov", ".ogg", ".webm", ".wmv", ".avi", ".flv"};
         string[] appExtensions = { ".exe",".url",".lnk" };
+        string[] audioExtensions = { ".ogg", ".mp3", ".wav" };
 
 
         System.Collections.ArrayList fileNames = new System.Collections.ArrayList();
@@ -29,8 +30,9 @@ namespace tinysort
 
         public Form1()
         {
-            this.MaximumSize = new System.Drawing.Size(500, 500);
-            this.MinimumSize = new System.Drawing.Size(500, 500);
+            this.MaximumSize = new System.Drawing.Size(500, 350);
+            this.MinimumSize = new System.Drawing.Size(500, 350);
+            this.Size = new System.Drawing.Size(500, 350);
             InitializeComponent();
            
 
@@ -49,6 +51,7 @@ namespace tinysort
         private void sortButton_Click(object sender, EventArgs e)
         {
             //activates the sorting algorithm
+            
             sortMethod(); 
 
         }
@@ -191,6 +194,29 @@ namespace tinysort
 
                     }
 
+
+                }
+
+                else if (audioExtensions.Contains(Path.GetExtension(fileName))){
+                    if (audioCheck.Checked) {
+
+                        targPath = Path.Combine(dirPath, "audio");
+
+                        string sourceFile = Path.Combine(dirPath, fileName);
+
+                        string destFile = Path.Combine(targPath, fileName);
+
+                        try
+                        {
+                            File.Move(sourceFile, destFile);
+                        }
+                        catch (Exception e)
+                        {
+                            System.Windows.Forms.MessageBox.Show("An exception has occured! " + e);
+
+                        }
+                    }
+        
                 }
               
             }
@@ -206,7 +232,7 @@ namespace tinysort
             if (openDir.ShowDialog() == DialogResult.OK) {
                  dirPath = openDir.SelectedPath;
      
-
+                
             }
         }
     }
