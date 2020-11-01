@@ -8,25 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using static tinysort.Variables;
+using static tinysort.Sorter;
 namespace tinysort
 {
     public partial class Form1 : Form
     {
-        //initializes the directory path and the target path
-        string dirPath;
-        string targPath;
-        //creates the possible extensions
-        string[] textExtensions = { ".txt", ".rtf", ".pdf", ".doc", ".docx" };
-        string[] imageExtensions = { ".png", ".jpg", ".jpeg", ".gif", ".PNG", ".JPG"};
-        string[] videoExtensions = { ".mp4", ".m4a", ".mov", ".ogg", ".webm", ".wmv", ".avi", ".flv"};
-        string[] appExtensions = { ".exe",".url",".lnk" };
-        string[] audioExtensions = { ".ogg", ".mp3", ".wav" };
-
-
-        System.Collections.ArrayList fileNames = new System.Collections.ArrayList();
-
-        
+        public static bool textCheckChecked = false;
+        public static bool imgCheckChecked = false;
+        public static bool appCheckChecked = false;
+        public static bool vidCheckChecked = false;
+        public static bool audioCheckChecked = false;
 
         public Form1()
         {
@@ -47,192 +39,81 @@ namespace tinysort
         {
 
         }
+        private void directoryButton_Click(object sender, EventArgs e) {
+            //makes a folder browse dialog
+            FolderBrowserDialog openDir = new FolderBrowserDialog();
+            //sets the dirPath variable to the directory choice of the user
+            if (openDir.ShowDialog() == DialogResult.OK)
+            {
+                dirPath = openDir.SelectedPath;
 
+
+            }
+        }
         private void sortButton_Click(object sender, EventArgs e)
         {
             //activates the sorting algorithm
             
-            sortMethod(); 
+            Sorter.sortMethod(); 
 
         }
 
-        private void sortMethod() {
-            // collects names of files in a given directory and lumps them in an array
-            try
-            {
-
-                string[] sFileNames = Directory.GetFiles(dirPath, "*");
-
-                foreach (string element in sFileNames)
-                {
-                    //converts the full paths to the files to just their actual names and adds them into an ArrayList
-                    fileNames.Add(Path.GetFileName(element));
-                }
-                //checks if directory doesn't already exist, then creates it
-                if (!Directory.Exists(Path.Combine(dirPath, "images")))
-                {
-                    Directory.CreateDirectory(Path.Combine(dirPath, "images"));
-                }
-                if (!Directory.Exists(Path.Combine(dirPath, "text_files")))
-                {
-                    Directory.CreateDirectory(Path.Combine(dirPath, "text_files"));
-                }
-
-                if (!Directory.Exists(Path.Combine(dirPath, "videos")))
-                {
-                    Directory.CreateDirectory(Path.Combine(dirPath, "videos"));
-                }
-
-                if (!Directory.Exists(Path.Combine(dirPath, "applications")))
-                {
-                    Directory.CreateDirectory(Path.Combine(dirPath, "applications"));
-                }
-
-            }
-            catch (ArgumentNullException) {
-                System.Windows.Forms.MessageBox.Show("An exception has occured!");
-            }
-            
-            foreach (string fileName in fileNames) {
-                //extension check
-
-                if (imageExtensions.Contains(Path.GetExtension(fileName))) {
-                    if (imgCheck.Checked)
-                    {
-                        //assigns the target path
-                        targPath = Path.Combine(dirPath, "images");
-
-                        //creates the source file location
-                        string sourceFile = Path.Combine(dirPath, fileName);//implement this as showed on that blogspot website
-                        //creates the destination
-                        string destFile = Path.Combine(targPath, fileName);
-                        //initiates the transfer + checks for unknown exceptions
-                        try
-                        {
-                            File.Move(sourceFile, destFile);
-                        }
-                        catch (Exception e)
-                        {
-                            System.Windows.Forms.MessageBox.Show("An exception has occured! " + e);
-
-                        }
-
-
-                    }
-                }
-
-
-                //    if (Path.GetExtension(fileName) == ".png" || Path.GetExtension(fileName) == ".jpg" || Path.GetExtension(fileName) == ".jpeg" || Path.GetExtension(fileName) == ".gif") {
-
-                else if (textExtensions.Contains(Path.GetExtension(fileName)))
-                {
-                    if (textCheck.Checked) {
-
-                        //assigns the target path
-                        targPath = Path.Combine(dirPath, "text_files");
-                        //creates the source file location
-                        string sourceFile = Path.Combine(dirPath, fileName);//implement this as showed on that blogspot website
-                        //creates the destination
-                        string destFile = Path.Combine(targPath, fileName);
-                        //initiates the transfer
-                        try
-                        {
-                            File.Move(sourceFile, destFile);
-                        }
-                        catch (Exception e)
-                        {
-                            //checks if a fuck-up happens
-                            System.Windows.Forms.MessageBox.Show("An exception has occured! " + e);
-
-                        }
-
-                    }
-
-                }
-                else if (videoExtensions.Contains(Path.GetExtension(fileName)))
-                {
-
-                    if (vidCheck.Checked) {
-                        targPath = Path.Combine(dirPath, "videos");
-
-                        string sourceFile = Path.Combine(dirPath, fileName);
-
-                        string destFile = Path.Combine(targPath, fileName);
-
-                        try
-                        {
-                            File.Move(sourceFile, destFile);
-                        }
-                        catch (Exception e)
-                        {
-                            System.Windows.Forms.MessageBox.Show("An exception has occured! " + e);
-
-                        }
-
-                    }
-
-                }
-                else if (appExtensions.Contains(Path.GetExtension(fileName)))
-                {
-                    if (appCheck.Checked) {
-                        targPath = Path.Combine(dirPath, "applications");
-
-                        string sourceFile = Path.Combine(dirPath, fileName);
-
-                        string destFile = Path.Combine(targPath, fileName);
-
-                        try
-                        {
-                            File.Move(sourceFile, destFile);
-                        }
-                        catch (Exception e)
-                        {
-                            System.Windows.Forms.MessageBox.Show("An exception has occured! " + e);
-
-                        }
-
-
-                    }
-
-
-                }
-
-                else if (audioExtensions.Contains(Path.GetExtension(fileName))){
-                    if (audioCheck.Checked) {
-
-                        targPath = Path.Combine(dirPath, "audio");
-
-                        string sourceFile = Path.Combine(dirPath, fileName);
-
-                        string destFile = Path.Combine(targPath, fileName);
-
-                        try
-                        {
-                            File.Move(sourceFile, destFile);
-                        }
-                        catch (Exception e)
-                        {
-                            System.Windows.Forms.MessageBox.Show("An exception has occured! " + e);
-
-                        }
-                    }
-        
-                }
-              
-            }
-        }
-
-        
-
-        private void directoryButton_Click(object sender, EventArgs e)
+        private void textCheck_CheckedChanged(object sender, EventArgs e)
         {
-            //makes a folder browse dialog
-            FolderBrowserDialog openDir = new FolderBrowserDialog();
-            //sets the dirPath variable to the directory choice of the user
-            if (openDir.ShowDialog() == DialogResult.OK) {
-                 dirPath = openDir.SelectedPath;
-     
-                
+            if (textCheck.Checked)
+            {
+                textCheckChecked = true;
+            }
+            else {
+                textCheckChecked = false;
+            }
+        }
+
+        private void imgCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (imgCheck.Checked)
+            {
+                imgCheckChecked = true;
+            }
+            else
+            {
+                imgCheckChecked = false;
+            }
+        }
+
+        private void appCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (appCheck.Checked)
+            {
+                appCheckChecked = true;
+            }
+            else
+            {
+                appCheckChecked = false;
+            }
+        }
+
+        private void vidCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (vidCheck.Checked)
+            {
+               vidCheckChecked = true;
+            }
+            else
+            {
+                vidCheckChecked = false;
+            }
+        }
+
+        private void audioCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (audioCheck.Checked)
+            {
+                audioCheckChecked = true;
+            }
+            else
+            {
+                audioCheckChecked = false;
             }
         }
     }

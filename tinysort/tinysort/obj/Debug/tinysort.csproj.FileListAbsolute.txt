@@ -18,3 +18,13 @@ C:\Users\Alex\Desktop\sortrepo\tinysort\tinysort\tinysort\obj\Debug\tinysort.csp
 C:\Users\Alex\Desktop\sortrepo\tinysort\tinysort\tinysort\obj\Debug\tinysort.csproj.CoreCompileInputs.cache
 C:\Users\Alex\Desktop\sortrepo\tinysort\tinysort\tinysort\obj\Debug\tinysort.exe
 C:\Users\Alex\Desktop\sortrepo\tinysort\tinysort\tinysort\obj\Debug\tinysort.pdb
+C:\Users\mikae\source\repos\tinysort\tinysort\tinysort\bin\Debug\tinysort.exe.config
+C:\Users\mikae\source\repos\tinysort\tinysort\tinysort\bin\Debug\tinysort.exe
+C:\Users\mikae\source\repos\tinysort\tinysort\tinysort\bin\Debug\tinysort.pdb
+C:\Users\mikae\source\repos\tinysort\tinysort\tinysort\obj\Debug\tinysort.csprojAssemblyReference.cache
+C:\Users\mikae\source\repos\tinysort\tinysort\tinysort\obj\Debug\tinysort.Form1.resources
+C:\Users\mikae\source\repos\tinysort\tinysort\tinysort\obj\Debug\tinysort.Properties.Resources.resources
+C:\Users\mikae\source\repos\tinysort\tinysort\tinysort\obj\Debug\tinysort.csproj.GenerateResource.cache
+C:\Users\mikae\source\repos\tinysort\tinysort\tinysort\obj\Debug\tinysort.csproj.CoreCompileInputs.cache
+C:\Users\mikae\source\repos\tinysort\tinysort\tinysort\obj\Debug\tinysort.exe
+C:\Users\mikae\source\repos\tinysort\tinysort\tinysort\obj\Debug\tinysort.pdb

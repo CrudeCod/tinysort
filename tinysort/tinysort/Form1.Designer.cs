@@ -1,6 +1,6 @@
 ﻿namespace tinysort
 {
-    partial class Form1
+     partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -45,7 +45,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tinysort 1.1";
+            this.label1.Text = "Tinysort 1.2";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textCheck
@@ -57,6 +57,7 @@
             this.textCheck.TabIndex = 1;
             this.textCheck.Text = "Sort text files";
             this.textCheck.UseVisualStyleBackColor = true;
+            this.textCheck.CheckedChanged += new System.EventHandler(this.textCheck_CheckedChanged);
             // 
             // imgCheck
             // 
@@ -67,6 +68,7 @@
             this.imgCheck.TabIndex = 2;
             this.imgCheck.Text = "Sort images";
             this.imgCheck.UseVisualStyleBackColor = true;
+            this.imgCheck.CheckedChanged += new System.EventHandler(this.imgCheck_CheckedChanged);
             // 
             // appCheck
             // 
@@ -77,6 +79,7 @@
             this.appCheck.TabIndex = 3;
             this.appCheck.Text = "Sort applications";
             this.appCheck.UseVisualStyleBackColor = true;
+            this.appCheck.CheckedChanged += new System.EventHandler(this.appCheck_CheckedChanged);
             // 
             // vidCheck
             // 
@@ -87,6 +90,7 @@
             this.vidCheck.TabIndex = 4;
             this.vidCheck.Text = "Sort videos";
             this.vidCheck.UseVisualStyleBackColor = true;
+            this.vidCheck.CheckedChanged += new System.EventHandler(this.vidCheck_CheckedChanged);
             // 
             // sortButton
             // 
@@ -117,6 +121,7 @@
             this.audioCheck.TabIndex = 7;
             this.audioCheck.Text = "Sort audio";
             this.audioCheck.UseVisualStyleBackColor = true;
+            this.audioCheck.CheckedChanged += new System.EventHandler(this.audioCheck_CheckedChanged);
             // 
             // Form1
             // 
